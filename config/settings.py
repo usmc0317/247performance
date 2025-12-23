@@ -28,6 +28,13 @@ DEBUG = config('DEBUG', default=True, cast=bool)
 
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', default='localhost,127.0.0.1', cast=Csv())
 
+# CSRF Configuration for Railway
+CSRF_TRUSTED_ORIGINS = config(
+    'CSRF_TRUSTED_ORIGINS',
+    default='https://247performance-production.up.railway.app,https://247performance.app,https://www.247performance.app',
+    cast=Csv()
+)
+
 
 # Application definition
 
