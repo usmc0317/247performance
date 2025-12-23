@@ -9,9 +9,9 @@ from .models import EmailSignup
 import threading
 
 @never_cache
-@ratelimit(key='ip', rate='5/h', method='POST', block=True)
+@ratelimit(key='ip', rate='50/h', method='POST', block=True)
 def home(request):
-    """Coming soon landing page with email capture - rate limited to 5 submissions per hour per IP"""
+    """Coming soon landing page with email capture - rate limited to 50 submissions per hour per IP"""
     if request.method == 'POST':
         form = EmailSignupForm(request.POST)
         if form.is_valid():
