@@ -1,0 +1,220 @@
+{% extends 'base.html' %}
+
+{% block title %}Franchisee Dashboard - 247 Performance{% endblock %}
+
+{% block content %}
+<div class="bg-gradient-to-r from-primary to-blue-600 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold">Franchisee Dashboard</h1>
+        <p class="text-blue-100">Manage your facility and track performance</p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Key Metrics -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm">Active Clients</p>
+                    <p class="text-3xl font-bold text-primary">142</p>
+                    <p class="text-green-600 text-sm mt-1">
+                        <i class="fas fa-arrow-up"></i> +8% this month
+                    </p>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-lg">
+                    <i class="fas fa-users text-2xl text-primary"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm">Monthly Revenue</p>
+                    <p class="text-3xl font-bold text-green-600">$28.5K</p>
+                    <p class="text-green-600 text-sm mt-1">
+                        <i class="fas fa-arrow-up"></i> +12%
+                    </p>
+                </div>
+                <div class="bg-green-100 p-3 rounded-lg">
+                    <i class="fas fa-dollar-sign text-2xl text-green-600"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm">Sessions Today</p>
+                    <p class="text-3xl font-bold text-yellow-600">18</p>
+                    <p class="text-gray-500 text-sm mt-1">6 remaining</p>
+                </div>
+                <div class="bg-yellow-100 p-3 rounded-lg">
+                    <i class="fas fa-calendar-check text-2xl text-yellow-600"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm">Satisfaction</p>
+                    <p class="text-3xl font-bold text-purple-600">4.8/5.0</p>
+                    <p class="text-purple-600 text-sm mt-1">
+                        <i class="fas fa-star"></i> Excellent
+                    </p>
+                </div>
+                <div class="bg-purple-100 p-3 rounded-lg">
+                    <i class="fas fa-smile text-2xl text-purple-600"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Revenue Chart -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h2 class="text-2xl font-bold">Revenue Overview</h2>
+                    <select class="border border-gray-300 rounded-lg px-3 py-1 text-sm">
+                        <option>Last 30 days</option>
+                        <option>Last 90 days</option>
+                        <option>This year</option>
+                    </select>
+                </div>
+                <div class="h-64 bg-gray-50 rounded-lg flex items-center justify-center">
+                    <div class="text-center text-gray-400">
+                        <i class="fas fa-chart-area text-6xl mb-2"></i>
+                        <p>Revenue Chart Placeholder</p>
+                        <p class="text-sm">(Integrate Chart.js or similar)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recent Bookings -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-4">Recent Bookings</h2>
+                <div class="overflow-x-auto">
+                    <table class="w-full">
+                        <thead>
+                            <tr class="text-left border-b">
+                                <th class="pb-3 font-semibold">Client</th>
+                                <th class="pb-3 font-semibold">Program</th>
+                                <th class="pb-3 font-semibold">Time</th>
+                                <th class="pb-3 font-semibold">Status</th>
+                            </tr>
+                        </thead>
+                        <tbody class="divide-y">
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold mr-2">
+                                            JD
+                                        </div>
+                                        John Doe
+                                    </div>
+                                </td>
+                                <td class="py-3">Hitting</td>
+                                <td class="py-3">Today, 3:00 PM</td>
+                                <td class="py-3">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Confirmed</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold mr-2">
+                                            SM
+                                        </div>
+                                        Sarah Miller
+                                    </div>
+                                </td>
+                                <td class="py-3">Pitching</td>
+                                <td class="py-3">Today, 4:30 PM</td>
+                                <td class="py-3">
+                                    <span class="bg-yellow-100 text-yellow-800 text-xs px-2 py-1 rounded-full">Pending</span>
+                                </td>
+                            </tr>
+                            <tr class="hover:bg-gray-50">
+                                <td class="py-3">
+                                    <div class="flex items-center">
+                                        <div class="w-8 h-8 bg-primary text-white rounded-full flex items-center justify-center text-sm font-semibold mr-2">
+                                            RJ
+                                        </div>
+                                        Robert Johnson
+                                    </div>
+                                </td>
+                                <td class="py-3">Strength</td>
+                                <td class="py-3">Today, 6:00 PM</td>
+                                <td class="py-3">
+                                    <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Confirmed</span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-6">
+            <!-- Quick Actions -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4">Quick Actions</h3>
+                <div class="space-y-3">
+                    <button class="w-full bg-primary text-white py-3 rounded-lg hover:bg-blue-700 transition">
+                        <i class="fas fa-user-plus mr-2"></i>Add New Client
+                    </button>
+                    <a href="{% url 'franchisee_analytics' %}" class="block w-full bg-gray-200 text-gray-800 text-center py-3 rounded-lg hover:bg-gray-300 transition">
+                        <i class="fas fa-chart-line mr-2"></i>View Analytics
+                    </a>
+                    <button class="w-full bg-gray-200 text-gray-800 py-3 rounded-lg hover:bg-gray-300 transition">
+                        <i class="fas fa-cog mr-2"></i>Facility Settings
+                    </button>
+                </div>
+            </div>
+
+            <!-- Today's Schedule -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4">Today's Schedule</h3>
+                <div class="space-y-3 max-h-96 overflow-y-auto">
+                    <div class="border-l-4 border-primary pl-3 py-2 bg-blue-50">
+                        <p class="font-semibold text-sm">3:00 PM - 4:00 PM</p>
+                        <p class="text-sm text-gray-700">John Doe - Hitting</p>
+                    </div>
+                    <div class="border-l-4 border-green-600 pl-3 py-2">
+                        <p class="font-semibold text-sm">4:30 PM - 5:30 PM</p>
+                        <p class="text-sm text-gray-700">Sarah Miller - Pitching</p>
+                    </div>
+                    <div class="border-l-4 border-yellow-600 pl-3 py-2">
+                        <p class="font-semibold text-sm">6:00 PM - 7:00 PM</p>
+                        <p class="text-sm text-gray-700">Robert Johnson - Strength</p>
+                    </div>
+                    <div class="border-l-4 border-purple-600 pl-3 py-2">
+                        <p class="font-semibold text-sm">7:30 PM - 8:30 PM</p>
+                        <p class="text-sm text-gray-700">Group Session - Fielding</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Notifications -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4">Notifications</h3>
+                <div class="space-y-3">
+                    <div class="bg-yellow-50 border-l-4 border-yellow-400 p-3">
+                        <p class="text-sm font-semibold text-yellow-800">Equipment Maintenance Due</p>
+                        <p class="text-xs text-yellow-700 mt-1">Pitching machine needs service</p>
+                    </div>
+                    <div class="bg-green-50 border-l-4 border-green-400 p-3">
+                        <p class="text-sm font-semibold text-green-800">New Client Registered</p>
+                        <p class="text-xs text-green-700 mt-1">Alex Thompson joined today</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,146 @@
+{% extends 'base_minimal.html' %}
+{% load static %}
+
+{% block title %}Privacy Policy - 247 Performance Studios{% endblock %}
+
+{% block content %}
+<div class="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900 py-20">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <!-- Back Button -->
+        <a href="{% url 'pages:home' %}" 
+           class="inline-flex items-center text-white/70 hover:text-white mb-8 transition">
+            <i class="fas fa-arrow-left mr-2"></i>
+            Back to Home
+        </a>
+        
+        <!-- Header -->
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 md:p-12 border border-white/20 mb-8">
+            <h1 class="text-4xl md:text-5xl font-black text-white mb-4">
+                Privacy Policy
+            </h1>
+            <p class="text-blue-200 text-lg">
+                Last Updated: December 23, 2024
+            </p>
+        </div>
+        
+        <!-- Content -->
+        <div class="bg-white/10 backdrop-blur-lg rounded-2xl p-8 md:p-12 border border-white/20 text-white space-y-8">
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">1. Introduction</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    247 Performance Studios ("we," "our," or "us") is committed to protecting your privacy. 
+                    This Privacy Policy explains how we collect, use, and safeguard your personal information 
+                    when you use our website and services.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">2. Information We Collect</h2>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    When you sign up for our waitlist, we collect:
+                </p>
+                <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                    <li>First and last name</li>
+                    <li>Email address</li>
+                    <li>Phone number</li>
+                    <li>Marketing communication preferences</li>
+                    <li>IP address and usage data (automatically collected)</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">3. How We Use Your Information</h2>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    We use your information to:
+                </p>
+                <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                    <li>Notify you about our launch and updates</li>
+                    <li>Send marketing communications (only if you opted in)</li>
+                    <li>Improve our website and services</li>
+                    <li>Prevent fraud and abuse</li>
+                    <li>Comply with legal obligations</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">4. Data Security</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    <i class="fas fa-shield-halved text-green-400 mr-2"></i>
+                    We implement industry-standard security measures to protect your data, including 
+                    SSL encryption, secure servers, and regular security audits. However, no method 
+                    of transmission over the internet is 100% secure.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">5. Your Rights</h2>
+                <p class="text-gray-300 leading-relaxed mb-3">
+                    You have the right to:
+                </p>
+                <ul class="list-disc list-inside text-gray-300 space-y-2 ml-4">
+                    <li>Access your personal data</li>
+                    <li>Request correction of inaccurate data</li>
+                    <li>Request deletion of your data</li>
+                    <li>Opt-out of marketing communications at any time</li>
+                    <li>Withdraw consent for data processing</li>
+                </ul>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">6. Data Retention</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    We retain your information for as long as necessary to provide you with services 
+                    and comply with legal obligations. You may request deletion at any time by 
+                    contacting us at privacy@247performance.app
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">7. Third-Party Services</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    We do not sell your personal information to third parties. We may share data with 
+                    service providers (e.g., email marketing platforms) who assist us in operating our 
+                    business, under strict confidentiality agreements.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">8. Cookies</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    Our website uses essential cookies for functionality. We do not use tracking cookies 
+                    without your consent. You can control cookie settings through your browser.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">9. Children's Privacy</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    Our services are not directed to individuals under 13. We do not knowingly collect 
+                    personal information from children. If you believe we have collected data from a 
+                    child, please contact us immediately.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">10. Changes to This Policy</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    We may update this Privacy Policy from time to time. We will notify you of any 
+                    material changes by email or prominent notice on our website.
+                </p>
+            </section>
+            
+            <section>
+                <h2 class="text-2xl font-bold mb-4 text-blue-300">11. Contact Us</h2>
+                <p class="text-gray-300 leading-relaxed">
+                    If you have questions about this Privacy Policy or wish to exercise your rights, 
+                    please contact us at:
+                </p>
+                <div class="mt-4 p-4 bg-white/5 rounded-lg">
+                    <p class="text-white"><i class="fas fa-envelope mr-2"></i>privacy@247performance.app</p>
+                    <p class="text-white mt-2"><i class="fas fa-globe mr-2"></i>247performance.app</p>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>
+{% endblock %}

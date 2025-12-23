@@ -1,0 +1,200 @@
+{% extends 'base.html' %}
+
+{% block title %}Client Dashboard - 247 Performance{% endblock %}
+
+{% block content %}
+<div class="bg-gradient-to-r from-primary to-blue-600 text-white py-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <h1 class="text-3xl font-bold">Welcome, {{ user.first_name|default:user.username }}!</h1>
+        <p class="text-blue-100">Track your progress and manage your training</p>
+    </div>
+</div>
+
+<div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+    <!-- Quick Stats -->
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm">Training Sessions</p>
+                    <p class="text-3xl font-bold text-primary">24</p>
+                </div>
+                <div class="bg-blue-100 p-3 rounded-lg">
+                    <i class="fas fa-dumbbell text-2xl text-primary"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm">Exit Velocity</p>
+                    <p class="text-3xl font-bold text-green-600">92 MPH</p>
+                </div>
+                <div class="bg-green-100 p-3 rounded-lg">
+                    <i class="fas fa-chart-line text-2xl text-green-600"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm">Next Session</p>
+                    <p class="text-lg font-bold text-gray-800">Tomorrow</p>
+                </div>
+                <div class="bg-yellow-100 p-3 rounded-lg">
+                    <i class="fas fa-calendar text-2xl text-yellow-600"></i>
+                </div>
+            </div>
+        </div>
+        
+        <div class="bg-white p-6 rounded-lg shadow-md">
+            <div class="flex items-center justify-between">
+                <div>
+                    <p class="text-gray-500 text-sm">Goals Achieved</p>
+                    <p class="text-3xl font-bold text-purple-600">8/10</p>
+                </div>
+                <div class="bg-purple-100 p-3 rounded-lg">
+                    <i class="fas fa-trophy text-2xl text-purple-600"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        <!-- Main Content -->
+        <div class="lg:col-span-2 space-y-6">
+            <!-- Recent Activity -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-4">Recent Activity</h2>
+                <div class="space-y-4">
+                    <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                        <div class="bg-primary text-white p-2 rounded-lg">
+                            <i class="fas fa-video"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold">Swing Analysis Completed</p>
+                            <p class="text-sm text-gray-600">Your latest swing has been analyzed. Check your progress tab.</p>
+                            <p class="text-xs text-gray-400 mt-1">2 hours ago</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                        <div class="bg-green-600 text-white p-2 rounded-lg">
+                            <i class="fas fa-check"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold">Training Session Completed</p>
+                            <p class="text-sm text-gray-600">Great work on your hitting session today!</p>
+                            <p class="text-xs text-gray-400 mt-1">Yesterday</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start space-x-4 p-4 bg-gray-50 rounded-lg">
+                        <div class="bg-yellow-600 text-white p-2 rounded-lg">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="flex-1">
+                            <p class="font-semibold">New Personal Best!</p>
+                            <p class="text-sm text-gray-600">You achieved a new exit velocity record: 92 MPH</p>
+                            <p class="text-xs text-gray-400 mt-1">2 days ago</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Training Programs -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h2 class="text-2xl font-bold mb-4">My Training Programs</h2>
+                <div class="space-y-4">
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-primary transition cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Hitting Development</h3>
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">12-week program focused on bat speed and power</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 65%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Week 8 of 12</p>
+                    </div>
+                    
+                    <div class="border border-gray-200 rounded-lg p-4 hover:border-primary transition cursor-pointer">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="font-bold text-lg">Strength & Conditioning</h3>
+                            <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">Active</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">Build explosive power and speed</p>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 40%"></div>
+                        </div>
+                        <p class="text-sm text-gray-500 mt-2">Week 4 of 10</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="space-y-6">
+            <!-- Quick Actions -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4">Quick Actions</h3>
+                <div class="space-y-3">
+                    <a href="{% url 'client_training' %}" class="block w-full bg-primary text-white text-center py-3 rounded-lg hover:bg-blue-700 transition">
+                        <i class="fas fa-calendar-plus mr-2"></i>Schedule Session
+                    </a>
+                    <a href="{% url 'client_progress' %}" class="block w-full bg-gray-200 text-gray-800 text-center py-3 rounded-lg hover:bg-gray-300 transition">
+                        <i class="fas fa-chart-bar mr-2"></i>View Progress
+                    </a>
+                    <a href="#" class="block w-full bg-gray-200 text-gray-800 text-center py-3 rounded-lg hover:bg-gray-300 transition">
+                        <i class="fas fa-video mr-2"></i>Watch Videos
+                    </a>
+                </div>
+            </div>
+
+            <!-- Upcoming Sessions -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4">Upcoming Sessions</h3>
+                <div class="space-y-3">
+                    <div class="border-l-4 border-primary pl-4 py-2">
+                        <p class="font-semibold">Hitting Session</p>
+                        <p class="text-sm text-gray-600">Tomorrow, 3:00 PM</p>
+                        <p class="text-xs text-gray-500">with Coach Mike</p>
+                    </div>
+                    <div class="border-l-4 border-green-600 pl-4 py-2">
+                        <p class="font-semibold">Strength Training</p>
+                        <p class="text-sm text-gray-600">Thu, 5:00 PM</p>
+                        <p class="text-xs text-gray-500">with Coach Sarah</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Goals -->
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-xl font-bold mb-4">Current Goals</h3>
+                <div class="space-y-3">
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span>Exit Velocity: 95 MPH</span>
+                            <span class="text-primary font-semibold">92/95</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-primary h-2 rounded-full" style="width: 97%"></div>
+                        </div>
+                    </div>
+                    <div>
+                        <div class="flex justify-between text-sm mb-1">
+                            <span>60-Yard Dash: 6.5s</span>
+                            <span class="text-primary font-semibold">6.7/6.5</span>
+                        </div>
+                        <div class="w-full bg-gray-200 rounded-full h-2">
+                            <div class="bg-yellow-500 h-2 rounded-full" style="width: 85%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
