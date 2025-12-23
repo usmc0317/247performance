@@ -6,6 +6,7 @@ from django.core.mail import send_mail
 from django.conf import settings
 from .forms import EmailSignupForm
 from .models import EmailSignup
+import threading
 
 @never_cache
 @ratelimit(key='ip', rate='5/h', method='POST', block=True)
@@ -17,32 +18,35 @@ def home(request):
             try:
                 signup = form.save()
                 
-                # Send email notification to administrators
-                try:
-                    subject = f'🎯 New Lead: {signup.first_name} {signup.last_name}'
-                    message = f"""
-                    New signup received from 247 Performance Studios website!
-                    
-                    Contact Details:
-                    Name: {signup.first_name} {signup.last_name}
-                    Email: {signup.email}
-                    Phone: {signup.phone}
-                    Marketing Consent: {'Yes' if signup.marketing_consent else 'No'}
-                    Submitted: {signup.created_at.strftime('%B %d, %Y at %I:%M %p')}
-                    
-                    View in admin panel:
-                    {request.build_absolute_uri('/admin/pages/emailsignup/')}
-                    """
-                    send_mail(
-                        subject=subject,
-                        message=message,
-                        from_email=settings.DEFAULT_FROM_EMAIL,
-                        recipient_list=settings.ADMIN_EMAILS,
-                        fail_silently=True,  # Don't break form submission if email fails
-                    )
-                except Exception as email_error:
-                    # Log email error but don't show to user
-                    print(f"Email notification failed: {email_error}")
+                # Send email notification in background thread (non-blocking)
+                def send_notification_email():
+                    try:
+                        subject = f'🎯 New Lead: {signup.first_name} {signup.last_name}'
+                        message = f"""
+                        New signup received from 247 Performance Studios website!
+                        
+                        Contact Details:
+                        Name: {signup.first_name} {signup.last_name}
+                        Email: {signup.email}
+                        Phone: {signup.phone}
+                        Marketing Consent: {'Yes' if signup.marketing_consent else 'No'}
+                        Submitted: {signup.created_at.strftime('%B %d, %Y at %I:%M %p')}
+                        
+                        View in admin panel:
+                        {request.build_absolute_uri('/admin/pages/emailsignup/')}
+                        """
+                        send_mail(
+                            subject=subject,
+                            message=message,
+                            from_email=settings.DEFAULT_FROM_EMAIL,
+                            recipient_list=settings.ADMIN_EMAILS,
+                            fail_silently=True,
+                        )
+                    except Exception as email_error:
+                        print(f"Background email failed: {email_error}")
+                
+                # Start email in background thread - returns immediately
+                threading.Thread(target=send_notification_email, daemon=True).start()
                 
                 if request.htmx:
                     return render(request, 'pages/partials/success_message.html')
