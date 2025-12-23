@@ -82,9 +82,12 @@ class EmailSignupForm(forms.ModelForm):
         if domain in DISPOSABLE_EMAIL_DOMAINS:
             raise ValidationError('Please use a permanent email address, not a temporary/disposable one.')
         
-        # Check for duplicate email
-        if EmailSignup.objects.filter(email__iexact=email).exists():
-            raise ValidationError('This email is already registered on our waitlist.')
+        # Check for duplicate email (exclude current instance if editing)
+        queryset = EmailSignup.objects.filter(email__iexact=email)
+        if self.instance.pk:
+            queryset = queryset.exclude(pk=self.instance.pk)
+        if queryset.exists():
+            raise ValidationError('This email is already on the waitlist. Check your inbox for updates!')
         
         return email.lower()
     
@@ -104,9 +107,12 @@ class EmailSignupForm(forms.ModelForm):
         # Format as xxx-xxx-xxxx
         formatted_phone = f"{digits_only[:3]}-{digits_only[3:6]}-{digits_only[6:]}"
         
-        # Check for duplicate phone
-        if EmailSignup.objects.filter(phone=formatted_phone).exists():
-            raise ValidationError('This phone number is already registered on our waitlist.')
+        # Check for duplicate phone (exclude current instance if editing)
+        queryset = EmailSignup.objects.filter(phone=formatted_phone)
+        if self.instance.pk:
+            queryset = queryset.exclude(pk=self.instance.pk)
+        if queryset.exists():
+            raise ValidationError('This phone number is already on the waitlist. Check your inbox for updates!')
         
         return formatted_phone
     
